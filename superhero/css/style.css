@@ -1,0 +1,18 @@
+body {
+  text-align: center;
+}
+
+header{
+  background-color: #0060aa;
+  padding-top: 50px;
+  padding-bottom: 49px;
+}
+header img{
+  border-radius: 200px;
+  width: 600px;
+}
+footer{
+  background-color:  #ffed10;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
