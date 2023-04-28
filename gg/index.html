@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1 id="hooyks"></h1>
+
+  <ul>
+    <li id="name1"></li>
+    <li id="age1"></li>
+    <li id="food1"></li>
+  </ul>
+
+  <script>
+    var namee = prompt("what is your name?")
+    var agee = prompt("How old are you?")
+    var foode = prompt("Whats your favourite food?")
+    class Person {
+      constructor(name, age, food) {
+        this.name = name
+        this.age = Number(age)
+        this.food = food
+      }
+      
+        makeSound() {
+        console.log(
+          this.name + " likes " + this.food)
+          hooyks.innerHTML = this.name + " says mmmmm to " + this.food;
+          name1.innerHTML = "your name is: " + this.name;
+          age1.innerHTML = "your age is: " + this.age;
+          food1.innerHTML = "your favourite food is: " + this.food;
+        
+      }
+    }
+       var hooyks = document.getElementById("hooyks")
+       var name1 = document.getElementById("name1")
+       var age1 = document.getElementById("age1")
+       var food1 = document.getElementById("food1")
+    const Henkilo = new Person(namee, agee, foode)
+    Henkilo.makeSound()
+  </script>
+</body>
+</html>
+
+ 
