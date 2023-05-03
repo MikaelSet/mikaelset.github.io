@@ -156,25 +156,7 @@ const form = document.querySelector('#payment-form');
 		const expiryDate = form.querySelector('#expiry-date').value;
 		const cvv = form.querySelector('#cvv').value;
 
-if (!cardholderName || cardholderName.trim() === '') {
-  alert('Please enter your name as it appears on your card.');
-  return;
-}
-
-if (!cardNumber || !/^[0-9]{16}$/.test(cardNumber)) {
-  alert('Please enter a valid 16-digit credit card number.');
-  return;
-}
-
-if (!expiryDate) {
-  alert('Please select the expiry date of your card.');
-  return;
-}
-
-if (!cvv || !/^[0-9]{3}$/.test(cvv)) {
-  alert('Please enter a valid 3-digit CVV code.');
-  return;
-}
+		// Add your validation code here
 
 
 		const payload = {
