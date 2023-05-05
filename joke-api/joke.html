@@ -4,16 +4,26 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="joke.css">
   <!-- sivun title -->
-  <title>document</title>
+  <title>--------------</title>
 </head>
 <body>
-  <h1>Kaksi-osainen koodaaja vitsi:</h1>
+  <h1>Funny programmer joke:</h1>
 
   <div id="vitsi-Html">
     <!-- "Loading joke..." toimii "placeholder":ina ennen kun vitsi ehtii lataamaan -->
     <h2>Loading joke...</h2>
   </div>
+
+  <h1>Here's a random photo:</h1>
+
+  <img src="https://picsum.photos/500/400" alt="random photo">
+
 
   <script>
     // ottaa tuon div elementin haltuun
@@ -28,8 +38,11 @@
         joke.innerHTML = `
           <h2>${data.setup}</h2>
           <h2>${data.delivery}</h2>
-        `
+        `;
       })
+
+    
   </script>
 </body>
 </html>
+
