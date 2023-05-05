@@ -1,0 +1,17 @@
+body {
+  text-align: center;
+  background: rgb(255,0,116);
+  background: radial-gradient(circle, rgba(255,0,116,1) 0%, rgba(113,48,255,1) 100%);
+}
+
+h1 {
+  size: 46;
+  text-shadow: 5px 5px 0px rgb(100, 238, 100);
+}
+
+h2 {
+  font-family: 'Press Start 2P', cursive;
+  size: 32px;
+  color: black;
+  text-shadow: 5px 5px 0px rgb(100, 238, 100);
+}
