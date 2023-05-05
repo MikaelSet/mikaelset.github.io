@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- sivun title -->
+  <title>Two-Part Joke</title>
+</head>
+<body>
+  <h1>Two-Part Joke</h1>
+
+  <div id="vitsi-Html">
+    <!-- "Loading joke..." toimii "placeholder":ina ennen kun vitsi ehtii lataamaan -->
+    <h2>Loading joke...</h2>
+  </div>
+
+  <script>
+    // ottaa tuon div elementin haltuun
+    const joke = document.getElementById("vitsi-Html")
+    // hakee visti api:sta vain koodaaja vitsit joilla on 2 osaa
+    fetch("https://v2.jokeapi.dev/joke/Programming?type=twopart")
+      .then(function(response) {
+      return response.json()
+    })
+    // näyttää vitsin setupin ja deliveryn html:ässä ( käyttää myös template literaaleja :O )
+      .then(function(data) {
+        joke.innerHTML = `
+          <h2>${data.setup}</h2>
+          <h2>${data.delivery}</h2>
+        `
+      })
+  </script>
+</body>
+</html>
