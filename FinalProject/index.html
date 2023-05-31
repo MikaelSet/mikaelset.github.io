@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      background: ;
+      text-align: center;
+    }
+    .letter {
+      font-size: 90px;
+      font-family: 'Courier New', Courier, monospace;
+      display: inline-block;
+    }
+    .letter.active {
+      color: green;
+    }
+    
+  </style>
+  <title>final project</title>
+</head>
+<body>
+  <h1 id="cool">Final project</h1>
+
+  <script>
+    var coolNode = document.getElementById("cool")
+    coolNode.innerHTML = prompt("text?");
+
+    const h1 = document.querySelector("h1")
+    const letters = h1.innerText.split("")
+    let html = ""
+
+
+    letters.forEach(letter => {
+      let classes = ''
+      if (letter !== " ") {
+        classes = "letter js-letter"
+      }
+      html = html + `<span class='letter js-letter'>${letter}</span>`
+    });
+
+    h1.innerHTML = html
+    const jsLetters = document.querySelectorAll(".js-letter")
+    jsLetters.forEach(node => {
+      node.addEventListener("mouseover", function(event) {
+        
+        this.classList.add("active")
+      })
+      node.addEventListener("mouseout", function(event) {
+        this.classList.remove("active")
+      })
+    })
+  </script>
+</body>
+</html>
