@@ -4,9 +4,8 @@ const songs = [
     "lofi-study.mp3",
     "tvari-tokyo-cafe.mp3",
     "watr-fluid.mp3",
-  ];
+  ]; 
   
-
 
   const player = document.getElementById("player");
 
@@ -42,7 +41,7 @@ const songs = [
     document.querySelector("#headphones").classList.add("pulse");
   }
   
-  function playAudio() {
+/*   function playAudio() {
     if (player.readyState) {
       player.play();
     }
@@ -50,7 +49,19 @@ const songs = [
   
   function pauseAudio() {
     player.pause();
-  }
+  } */
+
+var playPauseButton = document.getElementById("playPauseButton");
+
+function toggleAudio() {
+  if (player.paused) {
+    player.play();
+    playPauseButton.innerHTML = "&#10074;&#10074;";
+  } else {
+    player.pause();
+    playPauseButton.innerHTML = "&#9658;";
+}
+}
   
   const slider = document.getElementById("volumeSlider");
   slider.oninput = function (e) {
